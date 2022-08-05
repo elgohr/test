@@ -1,0 +1,18 @@
+name: Release
+on:  [push]
+jobs:
+  integration-test-github:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v3
+      - name: Publish to Registry
+        uses: elgohr/Publish-Docker-Github-Action@multiarch
+        with:
+          name: docker.pkg.github.com/elgohr/test/test
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+          registry: docker.pkg.github.com
+          platforms: linux/amd64,linux/arm64
