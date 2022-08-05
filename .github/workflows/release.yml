@@ -13,8 +13,8 @@ jobs:
       - name: Publish to Registry
         uses: elgohr/Publish-Docker-Github-Action@multiarch
         with:
-          name: docker.pkg.github.com/elgohr/test/test
+          name: ghcr.io/elgohr/test/test
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-          registry: docker.pkg.github.com
+          registry: ghcr.io
           platforms: linux/amd64,linux/arm64
