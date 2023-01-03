@@ -11,7 +11,7 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
       - name: Publish to Registry
-        uses: elgohr/Publish-Docker-Github-Action@multiarch
+        uses: elgohr/Publish-Docker-Github-Action@master
         with:
           name: ghcr.io/elgohr/test/test
           username: ${{ github.actor }}
